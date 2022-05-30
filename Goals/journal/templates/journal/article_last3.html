@@ -1,0 +1,14 @@
+{% for item in article %}
+<a href="{{ item.get_absolute_url }}" style="margin-bottom:20px;" class="art btn">
+    <div class="card art" style="width: 336px; height: 336px; border-bottom: 5px solid maroon;">
+        <img src=" {{ item.photo_article.url }} " style="width: 334px;" class="card-img-top art-img" alt="...">
+        <div class="card-img-overlay text-start">
+            просмотры
+            <span class="badge bg-danger fs-6" style="float: right;">{{ item.theme_article }}</span>
+        </div>
+        <div class="card-body">
+            <p class="card-title fs-5 fw-bold text-start">{{item.title_article}}</p>
+        </div>
+    </div>
+</a>
+{% endfor %}

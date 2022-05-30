@@ -1,0 +1,21 @@
+
+<div class="row" style='margin-top:0px;'>
+        <div class= ''> 
+            <ul class="nav content-center">
+                <li class="nav-item" style="margin-right:10px;">
+                    <a href="{% url 'add_theme_goal'%}" style="height:28px;"><span class="badge bg-warning text-black fs-6">Добавить</span></a>
+                </li>
+
+                <a href="{% url 'goals' %}" style="margin-right:10px;"><span class="badge bg-danger fs-6">Все цели</span></a>
+                {% for item in theme %}
+                <li class="nav-item">
+                    <a href="{{ item.get_url }}" style="margin-right:10px;"><span class="badge bg-danger fs-6">{{ item.title_theme_goal }}</span></a>
+                </li>
+                {% endfor %}
+                <li class="nav-item" style="margin-right:10px;">
+                    <a href="#" style="height:28px;"><span class="badge bg-warning text-black fs-6">Удалить</span></a>
+                </li>
+            </ul>
+        </div>
+</div>
+

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Ваши цели | goals
+{% endblock %}
+
+{% block navbar %}
+{% include 'inc/_nav.html' %}
+{% endblock %}
+
+
+{% block face %}
+<div class="review1">
+<p class="modal-title fs-2 fw-bold text-center"style="margin-bottom:20px;">Все обзоры книг</p>
+
+{% endblock %}
+
+{% block face1 %}
+<div class="review2">
+    <div class="container" style="width:75%">
+            {% for item in book_review %}
+                <a style="height:336px; margin-bottom:20px; margin-right:20px;" href="{{ item.get_absolute_url2 }}" class="btn button" >
+                    <div class="container" style="height: 336px; width: 400px;">
+                        <div class="img-book"><img style="width:50%" src=" {{ item.photo_review.url }} " style="width: 21rem;" class="card-img-top" alt="..."></div>
+                        <p class="text-black text-start fw-bold">{{item.theme_review}}<p>
+                        <p class="card-title fs-5 fw-bold text-start">{{item.title_review}}</p>
+                        <p>Читать дальше</p>
+                    </div>
+                </a>
+                {% endfor %}
+    </div>
+{% endblock %}
+
+
+
+
+

@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Заметки | goals
+{% endblock %}
+
+{% block navbar %}
+{% include 'inc/_nav.html' %}
+{% include 'inc/development/_bar_development.html' %}
+{% endblock %}
+
+{% block topbar %}
+
+<div class="container mt-3">
+    <div class="row gx-2 text-start" >
+        <div class="col-6">
+            <div class ="container text-center">
+                <img src="/media/notes.png" alt="" style="width: 50%">
+            </div>
+        </div>
+        <div class="col">
+                <p class="fs-1 fw-bold text-light text-start">Категория Заметки:</p>
+                <p class="fs-2 fw-bold text-start">Забываешь нужную информацию? <br>Записуй</p>
+                <p class= "fs-4 ">Здесь ты можешь решить проблему. <br>Иногда нам приходят умные идеи и мысли, так чтобы их не забывть, записуй.<br><b>Мы для этого.</b></p>
+            </div>
+    </div>
+</div>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class ="card notes" style="margin-top: 20px;">
+    <a href="{% url 'notes' %}" class="btn btn-outline-warning text-center fs-2 fw-bold text-notes">Все Заметки</a>
+    {% include 'inc/development/_category_notes.html' %}
+    <div class="card-body" style="margin-left: 40px; margin-right: 40px;">
+        <a class="btn btn-outline-warning" href="{% url 'add_notes' %}" style="width: 100%; opacity: .8;">
+            <img src="/media/add_notes.png" alt="" style="width:50%; margin-top: auto; margin-bottom: auto;">
+        </a>
+        <div class="row justify-content-start">
+                {% for item in notes %}
+                    {% if item.content_notes|length > 300 %}
+                    <div class="mb-2 bg-light text-dark" style="width:1200px; margin-top:25px;">
+                        <div class='card-body' style='border-bottom: 2px solid maroon;'>
+                            <a href="{{ item.get_delete_url }}"type="button" class="btn-close"aria-label="Close" style="float: right;"></a>
+                            <a href="{{item.get_update_notes}}" class="text-end" style=""><img src="/media/edit.png" alt="" style="width: 2%; float: left; margin-right:10px; opacity: .4;"></a>
+                            <h5 class="card-title text-center"><b>{{ item.title_notes }}&nbsp; <span class="badge bg-warning text-dark">{{item.category_notes}}</span></b></h5>  
+                            <div class="container-sm">
+                            <p class="card-text" style="margin-top:20px;">{{item.content_notes}}</p>
+                            <p class="card-text" style="margin-top:20px;"><small class="text-muted">Создано: {{item.created_at_notes|timesince}} назад</small></p>
+                            </div>
+                        </div>
+                    </div>
+                    {% else %}
+                        <div class="mb-2 bg-light text-dark" style="width:600px; margin-top:25px;">
+                            <div class='card-body' style='border-bottom: 2px solid maroon;'>
+                                <a href="{{ item.get_delete_notes }}"type="button" class="btn-close"aria-label="Close" style="float: right;"></a>
+                                <a href="{{item.get_update_notes}}" class="text-end" style=""><img src="/media/edit.png" alt="" style="width: 4%; float: left; margin-right:10px; opacity: .4;"></a>
+                                <h5 class="card-title text-center"><b>{{ item.title_notes }}&nbsp; <span class="badge bg-warning text-dark">{{item.category_notes}}</span></b></h5>  
+                                <div class="container-sm">
+                                <p class="card-text" style="margin-top:20px;">{{item.content_notes}}</p>
+                                </div>
+                                <p class="card-text" style="margin-top:20px;"><small class="text-muted">Создано: {{item.created_at_notes|timesince}} назад</small></p>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor%}
+
+        </div>
+    </div>
+    </div>
+</div>
+
+{% endblock %}

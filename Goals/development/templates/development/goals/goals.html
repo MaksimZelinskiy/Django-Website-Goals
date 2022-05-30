@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Цели | goals
+{% endblock %}
+
+{% block navbar %}
+{% include 'inc/_nav.html' %}
+{% include 'inc/development/_bar_development.html' %}
+{% endblock %}
+
+
+{% block topbar %}
+    <div class="row gx-2 text-start" >
+        <div class="col-6">
+            <div class ="container text-center">
+                <img src="/media/goals.png" alt="" style="width: 100%">
+            </div>
+        </div>
+        <div class="col">
+                <p class="fs-1 fw-bold text-light text-start">Категория Цели:</p>
+                <p class="fs-2 fw-bold text-start">Создавай цели <br>и выполняй задачи.</p>
+                <p class= "fs-4 ">Каждому человеку, который хочет добиться успеха, нужно определить свой путь.<br><b>Мы для этого.</b></p>
+                {% include 'inc/development/_theme_goals.html' %}
+
+            </div>
+    </div>
+{% endblock %}
+
+
+
+{% block content %}
+
+<div class="row justify-content-start">
+    <a class="btn btn-outline-dark add_goal" href="{% url 'add_goals' %}" style="width: 320px; margin-right:5px; margin-bottom:5px; border-radius: 15px 15px 15px 15px;">
+        <div class="card-body">
+            <img src="/media/add_goal.png" alt="" style="width: 100%">
+        </div>
+    </a>
+        {% for item in goals %}
+        <div class="card" style="width: 320px; margin-right:5px; margin-bottom:5px; border-radius: 15px 15px 15px 15px;">
+                    <div class="card-body">
+                        <a href="{{ item.get_delete_goal }}"type="button" class="btn-close"aria-label="Close" style="float: right;"></a>
+                        <p class="card-title"><h5>{{item.title_goal}}&ensp;<a href="#"><span class="badge bg-warning text-black">{{item.theme_goal}}</span></h5></a></p>
+                        <div class="p-3 mb-2 bg-light text-dark">
+                            <p class="card-text">{{item.content_goal}}</p>
+                        </div>
+                    </div>
+                <p class="card-text" style="margin-bottom:20px"><small class="text-muted">Цель создана: {{item.created_at_goal|timesince}} назад</small>
+                    <a href="{{ item.get_update_goals }}" class="text-end" style="align-items: end"><img src="/media/edit.png" alt="" style="width: 7%"></a>
+                </p>
+        </div>
+        {% endfor %}
+
+</div>
+{% endblock %}
+
+
+
+
+
+

@@ -1,0 +1,81 @@
+body{
+    background-image: url(bg.png); width: 100%;
+    font-family: 'Roboto', sans-serif;
+
+}
+.bar{
+    background-image: url(bar.png);
+    background-repeat: no-repeat;
+}
+.box{
+    margin-top: 50px;
+}
+.img{
+    opacity: .4;
+}
+.errorlist{
+    color:red;
+}
+.cadr{
+    background-image: url(bg_for_card.png); width: 100%;
+    padding: 0px;
+    margin-top: 150px;
+}
+.gg{
+    background-color: white;
+}
+.notes{
+    border-radius: 15px 15px 15px 15px;
+    background-color: white;
+}
+.text-notes{
+    color:black;
+    background-color: #ffc402;
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 0px 0px 15px 15px;
+}
+.text-routine{
+    color:black;
+    background-color: #ffc402;
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+    border-radius: 0px 0px 15px 15px;
+}
+.review1{
+    background-color: white;
+}
+.review2{
+    background-color: #f0f2fe;
+}
+
+.add_goal{
+    opacity: .4;
+}
+
+.navbar1{
+    background-color: #ffffff; 
+    position:sticky;
+    top: 0;
+    z-index: 999999;
+    
+}
+.img-book{
+    background-color: #c0fcff;
+    padding:20px;
+    border-radius:15px 15px 15px 15px;
+    box-shadow: 0 0 10px #0000001b;
+}
+.art{
+    border-radius:25px 25px 25px 25px;
+}
+.art-img{
+    border-radius:10px 10px 10px 10px;
+}
+.card-article{
+    text-align: center;
+}

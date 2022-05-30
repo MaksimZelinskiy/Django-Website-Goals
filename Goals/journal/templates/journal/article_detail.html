@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{content_item.title|slice:":30"}}... | goals
+{% endblock %}
+
+{% block navbar %}
+{% include 'inc/_nav.html' %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block face %}
+<div class="gg" style="font-family: 'Roboto', sans-serif;">
+    <div class="container">
+            <div class="row">
+                <div class="col">
+                </div>
+                <div class="col-8">
+                    <div class="card art">
+                        <div class="card-body">
+                            <div class="container text-end">
+                                <h4><b><a href="{{request.META.HTTP_REFERER|escape}}"type="button" class="btn-close text-end"aria-label="Close"></a></b></h4>
+                            </div>
+                            <div class="container-sm">
+                                <p class="modal-title fs-1 fw-bold text-center" style="margin-bottom:30px;">{{ content_article.title_article }}</p>
+                                <p><span class="badge bg-danger fs-5">{{ content_article.theme_article }}</span>
+                                <small class="text-muted fw-bold">{{content_article.created_at_article}}</small></p>
+                                {% autoescape off %}
+                                    <p class="text fs-6">{{content_article.content_article}}</p>
+                                {% endautoescape %}
+                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                </div>
+            </div>
+    </div>
+
+{% endblock %}
+

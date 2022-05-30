@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Добавление цели | Твои цели | goals
+{% endblock %}
+
+{% block navbar %}
+{% include 'inc/_nav.html' %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-3">
+    </div>
+    <div class="col-md-8">
+        <div class="card text-black mb-3 w-75" style="width: 40rem; border-radius: 40px 40px 40px 40px;">
+            <div class="container text-end" style="margin-top:20px">
+                <h4><b><a href="{{request.META.HTTP_REFERER|escape}}"type="button" class="btn-close text-end"aria-label="Close"></a></b></h4>
+            </div>
+            <div class='container' style="margin-left:20px;">
+                <h1><b>Добавление цели</b></h1>
+            </div>
+            <div class="card-body">
+                <form action="{% url 'add_goals' %}" method="post">
+                    {% csrf_token %}
+
+                    {{ form.non_field.errors }}
+
+                    {{ form.as_p }}
+                    <div class="vstack gap-2 col-md-5 mx-auto">
+                        <button type="submit" class = "btn btn-dark"><h5>Готово</h5></button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+
+
+

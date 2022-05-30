@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Распорядок дня | goalsv
+{% endblock %}
+
+{% block navbar %}
+{% include 'inc/_nav.html' %}
+{% include 'inc/development/_bar_development.html' %}
+{% endblock %}
+
+
+
+{% block topbar %}
+<div class="row gx-2 text-start" >
+    <div class="col-6">
+        <div class ="container text-center">
+            <img src="/media/routine.png" alt="" style="width: 100%">
+        </div>
+    </div>
+    <div class="col">
+            <p class="fs-1 fw-bold text-light text-start">Категория Распорядок дня:</p>
+            <p class="fs-2 fw-bold text-start">Пиши свое расписание <br>и выполняй планы.</p>
+            <p class= "fs-4 ">Забудь, то чувство: "бесполезная трата времени".<br>Создавай в себе дисциплину.<br><b>Мы для этого.</b></p>        
+        </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-start">
+        <div class='card mb-3 g-4' style='max-width: 1320px; margin-top:20px; margin-bottom:5px; border-radius: 15px 15px 15px 15px;'>
+            <a class="btn btn-outline-warning text-center fs-2 fw-bold text-routine" href="{% url 'routine'%}">Весь Распорядок</a>
+            {% include 'inc/development/_category_routine.html' %}
+            <div class="row">
+                <div class="col">
+                    <a class="btn btn-outline-warning" href={% url 'add_routine' %} style="width:100%;">
+                        <img src="/media/add_notes.png" alt="" style="width:30%; margin-top: auto; margin-bottom: auto;">
+                    </a>
+                {% for item in routine %}
+                <div class="card-body">
+                    <div class="p-3 mb-2 bg-light text-dark">
+                                <div class='row g-0' style='border-bottom: 2px solid maroon;'>
+                                    <div class='col-md-9'>
+                                        <h5 class="card-title"><b>{{item.title_routine}}&nbsp; <span class="badge bg-warning text-dark">{{item.category_routine}}</span></b></h5>  
+                                        <p class="card-text">{{item.text_routine}}</p>
+                                        <p class="card-text"><small class="text-muted">Создано: {{item.created_at_routine|timesince}} назад</small></p>
+                                    </div>
+                                    <div class='col-md-3 text-end'>
+                                        <h5 class="card-title"><b> Время:</b></h5>
+                                        <p class="card-text">с {{item.with_routine}} до {{item.before_routine}}</p>
+                                        <a href ="{{ item.get_delete_routine }}"type="button" class="btn text-black" style="float: right;">Удалить</a>
+                                        <a href="{{item.get_update_routine}}"  class="btn text-black" style="float: right;">Редактировать</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+

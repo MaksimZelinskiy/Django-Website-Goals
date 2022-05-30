@@ -1,0 +1,26 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-white mx-auto" style="width:35%; border-radius: 0px 0px 15px 15px;">
+    <div class="mx-auto order-0">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto"  style="text-align: center">
+
+                {% if request.path == "/development/goals" %}
+                <li class="nav-item"><a class="btn navbar-dark fs-4 fw-bold text-black bar" href="{% url 'goals' %}">Цели</a></li>
+                {% else %}
+                <li class="nav-item"><a class="btn navbar-dark fs-5 fw-bold text-black " href="{% url 'goals' %}">Цели</a></li>
+                {% endif %}
+
+                {% if request.get_full_path == "/development/notes" %}
+                <li class="nav-item"><a class="btn navbar-dark fs-4 fw-bold text-black bar" href="{% url 'notes' %}">Заметки</a></li>
+                {% else %}
+                <li class="nav-item"><a class="btn navbar-dark fs-5 fw-bold text-black" href="{% url 'notes' %}">Заметки</a></li>
+                {% endif %}
+
+                {% if request.get_full_path == "/development/routine" %}
+                <li class="nav-item"><a class="btn navbar-dark fs-4 fw-bold text-black bar" href="{% url 'routine' %}">Распорядок дня</a></li>
+                {% else %}
+                <li class="nav-item"><a class="btn navbar-dark fs-5 fw-bold text-black" href="{% url 'routine' %}">Распорядок дня</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>

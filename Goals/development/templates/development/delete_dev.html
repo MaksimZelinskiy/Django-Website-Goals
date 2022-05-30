@@ -1,0 +1,38 @@
+
+{% extends 'base.html' %}
+
+{% block title %}
+Добавление цели | Твои цели | goals
+{% endblock %}
+
+{% block navbar %}
+{% include 'inc/_nav.html' %}
+{% endblock %}
+
+{% block sidebar %}
+{% endblock %}
+
+{% block content %}
+        <div class="card w-50 mx-auto" style="border-radius: 40px 40px 40px 40px;">
+            <div class="container text-end" style="margin-top:20px">
+                <h4><b><a href="{{request.META.HTTP_REFERER|escape}}"type="button" class="btn-close"aria-label="Close" style="float: right; margin-right:10px;"></a></b></h4>
+            </div>
+            <div class='container' style="text-align: center; margin-bottom:20px;">
+                <h1><b>Вы действительно хотите удалить?</b></h1>
+                <div class="card-body">
+                    <form method="post">{% csrf_token %}
+                        {{ form }}
+                        <div class="gap-2 col-6 mx-auto" style="margin-top:20px;">
+                            <button type="submit" style="width:45%;" class="btn btn-outline-dark btn-lg">Да</button>
+                            <a href="{{request.META.HTTP_REFERER|escape}}" style="width:25%;" class="btn btn-outline-dark btn-lg">Нет</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+{% endblock %}
+
+
+
+
+

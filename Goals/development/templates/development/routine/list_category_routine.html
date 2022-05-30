@@ -1,0 +1,9 @@
+<div class="row" style="margin-left: auto; margin-right:auto; margin-bottom:15px;" >
+        <ul class="nav content-center">
+            {% for item in category %}
+            <li class="nav-item">
+                <a href="{{ item.get_routine_url }}" style="margin-right:10px;"><span class="badge bg-warning text-dark fs-6">{{ item.title_category_routine }}</span></a>
+            </li>
+            {% endfor %}
+        </ul>
+</div>

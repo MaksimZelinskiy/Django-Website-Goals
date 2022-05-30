@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Журнал | goals
+{% endblock %}
+
+{% block navbar %}
+{% include 'inc/_nav.html' %}
+{% endblock %}
+
+
+
+{% block card %}
+<div class="card">
+        <img src="/media/dj.png" alt="" style="width: 24%; margin-top:20px"></p>
+        <div class="card-body">
+                <p style="margin-top: 20px; margin-bottom:20px;" class="fs-2 fw-bold text-black text-center">Статьи</p>
+
+            <div class="card-article">
+                {% include 'inc/article/_article_last3.html' %}
+                <a href="{% url 'article' %}" class="btn btn-outline-danger text-center" style="width: 50%; margin-top: 40px; margin-bottom:40px; text-align: center;"><b>Больше статей</b></a>
+            </div>
+
+            </div>
+</div>
+{% endblock card %}

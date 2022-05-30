@@ -1,0 +1,47 @@
+{% load static %}
+
+<!doctype html>
+
+<html lang="en">
+
+<head>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <link rel = "stylesheet" href ="{% static 'bootstrap/css/bootstrap.min.css' %}">
+        <link rel = "stylesheet" href ="{% static 'bootstrap/css/style.css' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Roboto:wght@400&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
+        
+        <title>{% block title %} goals {% endblock %}</title>
+
+</head>
+
+<body>
+
+{% block navbar %}{% endblock %}
+
+{% block face %}{% endblock %}
+{% block face1 %}{% endblock %}
+<div class="container mt-3">
+{% block topbar %}{% endblock %}
+{% block content %}{% endblock %}
+</div>
+
+
+{% block card %}
+
+{% endblock card %}
+
+{% block endbar %}
+{% include 'inc/_endbar.html'%}
+{% endblock endbar %}
+
+
+    <script src="https://code.jsdelivr.com/jsdelivr-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WhyLnv5vZF5SrPo0iEjwBvKUimGFAV0wwjlyYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js01.16.0/dist/und/popper.min.js" integrity="sha384-Q6B9RHVbTyZFJoft+2mbHaEwldlvI9ToYy5n32V922TtmI3UksdORVVOxMFOOAO" crossorigin="anonymous"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.min.css' %}"></script>
+
+</body>
+</html>
